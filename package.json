@@ -2,7 +2,7 @@
   "name": "moja",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://magdalenawiertel92.github.io",
+  "homepage": "https://magdalenawiertel92.github.io/shop-project/",
   "dependencies": {
     "@hookform/resolvers": "^2.8.8",
     "@testing-library/jest-dom": "^5.14.1",
