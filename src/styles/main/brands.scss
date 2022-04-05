@@ -1,0 +1,49 @@
+@use "./mixins.scss" as *;
+
+.brands-wrapper {
+  width: 100%;
+  border-top: 1px solid rgb(178, 178, 178);
+  border-bottom: 1px solid rgb(178, 178, 178);
+  position: relative;
+
+  & p {
+    display: inline-block;
+    width: 190px;
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 2;
+    background-color: #fff;
+    font-size: 15px;
+    font-family: "Arial";
+    color: rgb(65, 65, 65);
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  & .brands {
+    height: 100px;
+    max-width: 970px;
+    margin: 0 auto;
+    @include text-content-center();
+
+    & img {
+      padding: 0 25px;
+
+      &:last-child {
+        padding-right: 0;
+      }
+
+      &:first-child {
+        padding-left: 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .brands-wrapper {
+    display: none;
+  }
+}

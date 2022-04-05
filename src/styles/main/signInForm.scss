@@ -1,0 +1,146 @@
+@use "./mixins.scss" as *;
+
+@font-face {
+  font-family: "HelveticaNeueLT";
+  src: url("../../fonts/HelveticaNeueLTStd-Th.otf") format("truetype");
+}
+
+.sign-in-wrapper,
+.sign-up-wrapper,
+.log-out-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fd926d;
+  font-family: "HelveticaNeueLT";
+  color: #78645d;
+  z-index: 100;
+
+  .sign-inner,
+  .log-inner {
+    width: 400px;
+    height: 450px;
+    background-color: #ededed;
+    @include text-content-center(column);
+    position: relative;
+    .close {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 30px;
+      height: 30px;
+      font-size: 30px;
+      border: none;
+      transition: 0.5s;
+      &:hover {
+        background-color: #fd926d;
+      }
+    }
+
+    h1 {
+      margin-bottom: 30px;
+      font-size: 40px;
+    }
+
+    form {
+      @include text-content-center(column);
+      font-size: 17px;
+      label {
+        height: 45px;
+        min-width: 90%;
+        margin-bottom: 30px;
+        border-bottom: 1px solid #78645d;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        position: relative;
+        input {
+          margin-left: 20px;
+          height: 30px;
+          border: none;
+          outline: none;
+          padding: 5px;
+          background-color: #ededed;
+        }
+        p {
+          position: absolute;
+          bottom: -25px;
+          left: 0;
+          color: #ff0000;
+        }
+      }
+
+      & button {
+        width: 270px;
+        height: 45px;
+        border: none;
+        background-color: #fd926d;
+        color: #fff;
+        font-size: 23px;
+        font-family: "HelveticaNeueLT";
+        letter-spacing: 1px;
+        margin: 15px 0;
+        position: relative;
+
+        &:hover {
+          &:before {
+            width: 270px;
+            transition: all ease-in-out 0.25s;
+          }
+        }
+        &:before {
+          content: " ";
+          display: block;
+          height: 2px;
+          background-color: #dd6b44;
+          position: absolute;
+          bottom: 0;
+          width: 0%;
+        }
+      }
+      a {
+        color: #78645d;
+        margin-top: 10px;
+        text-decoration: none;
+        transition: 0.5s;
+        &:hover {
+          color: #000;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 460px) {
+  .sign-in-wrapper,
+  .sign-up-wrapper,
+  .log-out-wrapper {
+    .sign-inner,
+    .log-inner {
+      width: 90%;
+      height: 90%;
+      h1 {
+        font-size: 35px;
+      }
+      form {
+        font-size: 17px;
+        label {
+          height: 35px;
+          margin-bottom: 20px;
+          input {
+            margin-left: 5px;
+            width: 165px;
+          }
+        }
+        button {
+          width: 200px;
+        }
+      }
+    }
+  }
+}

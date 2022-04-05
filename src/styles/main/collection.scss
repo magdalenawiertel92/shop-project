@@ -1,0 +1,333 @@
+@use "./mixins.scss" as *;
+
+@font-face {
+  font-family: "HelveticaNeueLTB";
+  src: url("../../fonts/helvetica/HelveticaNeueLTStd-BlkCn.otf")
+    format("truetype");
+}
+
+@font-face {
+  font-family: "HelveticaNeue";
+  src: url("../../fonts/HelveticaNeueLTStd-Th.otf") format("truetype");
+}
+
+@font-face {
+  font-family: "Bello";
+  src: url("../../fonts/Bello-Script.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "helveticaNeueThin";
+  src: url("../../fonts/helvetica/HelveticaNeueLTStd-UltLt.otf")
+    format("truetype");
+}
+
+.collection-wrapper {
+  max-width: 970px;
+  height: 340px;
+  margin: 25px auto;
+  display: grid;
+  grid-template-areas:
+    "best best summer summer"
+    "best best bestsellers fall";
+  gap: 2px;
+
+  & .text-wrapper,
+  & .summer-wrapper,
+  & .bestsellers,
+  & .fall {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  & .text-wrapper {
+    min-width: 161px;
+    position: relative;
+    grid-area: best;
+    background-image: url("../../images/collection-text-bgc.png");
+    @include text-content-center;
+
+    & .text {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 290px;
+      height: 340px;
+      @include text-content-center(column);
+      & p {
+        text-transform: uppercase;
+      }
+
+      & .best {
+        font-size: 35px;
+        font-family: "HelveticaNeueLTB";
+        color: rgb(65, 65, 65);
+      }
+
+      & .outfits {
+        font-size: 72px;
+        font-family: "HelveticaNeueLTStd";
+        color: rgb(65, 65, 65);
+      }
+
+      & .and-container {
+        position: relative;
+        width: 30px;
+        height: 30px;
+        background-color: rgb(65, 65, 65);
+        border-radius: 50%;
+        & .and {
+          position: absolute;
+          top: 0;
+          left: 50%;
+          transform: translate(-50%, 0);
+          font-size: 24px;
+          font-family: "HelveticaNeueLTStd";
+          color: rgb(255, 255, 255);
+          text-align: center;
+          display: inline-block;
+        }
+        &:before,
+        &:after {
+          content: " ";
+          display: block;
+          width: 80px;
+          height: 1px;
+          background-color: #414141;
+        }
+
+        &:after {
+          margin: -16px 0px 0px -88px;
+        }
+
+        &:before {
+          margin: 15px 38px;
+        }
+      }
+
+      & .looks {
+        font-size: 78px;
+        font-family: "HelveticaNeueLTB";
+        color: #4fafa0;
+      }
+    }
+  }
+
+  & .summer-wrapper {
+    grid-area: summer;
+    background-image: url("../../images/summer-bgc.png");
+    position: relative;
+    min-height: 30px;
+    & .text-summer {
+      position: absolute;
+      top: 50%;
+      left: 7%;
+      transform: translate(0, -50%);
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      background-color: #fff;
+      box-shadow: 0px 4px 0px 0px rgb(79, 175, 160);
+      @include text-content-center(column);
+
+      &:before {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        content: " ";
+        display: block;
+        width: 118px;
+        height: 118px;
+        background-color: transparent;
+        border: 1px solid rgb(193, 174, 168);
+        border-radius: 50%;
+      }
+
+      & .summer {
+        font-size: 20px;
+        font-family: "Bello";
+        color: rgb(255, 166, 135);
+        line-height: 1;
+      }
+
+      & .party {
+        font-size: 40px;
+        font-family: "helveticaNeueThin";
+        color: rgb(193, 174, 168);
+        text-transform: uppercase;
+        line-height: 1;
+      }
+
+      & .collection {
+        font-size: 12px;
+        font-family: "HelveticaNeueLTB";
+        color: rgb(106, 106, 106);
+        text-transform: uppercase;
+        line-height: 1;
+      }
+    }
+  }
+
+  & .bestsellers {
+    grid-area: bestsellers;
+    background-image: url("../../images/bestsellers-bgc.png");
+    position: relative;
+    min-width: 82px;
+
+    & .text-bestsellers {
+      position: absolute;
+      bottom: 2%;
+      left: 50%;
+      transform: translate(-50%, 0);
+      @include text-content-center();
+      cursor: pointer;
+      color: rgb(255, 255, 255);
+      & p {
+        font-size: 27px;
+        font-family: "helveticaNeueThin";
+
+        text-transform: uppercase;
+      }
+      & i {
+        font-size: 12px;
+        padding-left: 10px;
+      }
+    }
+  }
+
+  & .fall {
+    grid-area: fall;
+    background-image: url("../../images/fall-leather-bgc.png");
+    position: relative;
+    min-width: 82px;
+
+    & .fall-text-content {
+      @include text-content-center(column);
+      height: 100%;
+      width: 150px;
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      & .fall-text {
+        font-size: 34px;
+        font-family: "helveticaNeueThin";
+        color: rgb(255, 255, 255);
+        text-transform: uppercase;
+        line-height: 1;
+      }
+
+      & button {
+        position: relative;
+        margin-top: 10px;
+        @include buttonWithUnderline(98px, 29px, 12px);
+        background-color: rgb(79, 175, 160);
+        &:before {
+          background-color: rgb(39, 135, 120);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1064px) {
+  .collection-wrapper {
+    max-width: 730px;
+    max-height: 250px;
+
+    & .text-wrapper {
+      & .text {
+        width: 200px;
+        height: 250px;
+
+        & .best {
+          font-size: 28px;
+        }
+
+        & .outfits {
+          font-size: 55px;
+        }
+
+        & .and-container {
+          width: 23px;
+          height: 23px;
+
+          &:before,
+          &:after {
+            width: 61px;
+          }
+          &:before {
+            margin: 11px 29px;
+          }
+          &:after {
+            margin: -11px 0px 0px -69px;
+          }
+          & .and {
+            font-size: 18px;
+          }
+        }
+
+        & .looks {
+          font-size: 60px;
+        }
+      }
+    }
+    .summer-wrapper {
+      min-height: auto;
+      & .text-summer {
+        width: 100px;
+        height: 100px;
+        box-shadow: 0px 2px 0px 0px #4fafa0;
+        &:before {
+          width: 90px;
+          height: 90px;
+        }
+        & .summer {
+          font-size: 15px;
+        }
+
+        & .party {
+          font-size: 26px;
+        }
+
+        & .collection {
+          font-size: 9px;
+        }
+      }
+    }
+
+    & .bestsellers {
+      & .text-bestsellers {
+        & p {
+          font-size: 20px;
+        }
+        & i {
+          font-size: 8px;
+        }
+      }
+    }
+
+    & .fall {
+      & .fall-text-content {
+        width: 110px;
+        & .fall-text {
+          font-size: 25px;
+        }
+
+        & button {
+          width: 70px;
+          height: 25px;
+          font-size: 10px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .collection-wrapper {
+    display: none;
+  }
+}

@@ -1,0 +1,62 @@
+@use "../../styles//main/mixins.scss" as *;
+
+.info-product-container {
+  max-width: 970px;
+  margin: 0 auto 30px auto;
+  .single-info {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    p {
+      margin: 15px 0 15px 55px;
+      font-size: 14px;
+      font-family: "Arial";
+      color: rgb(255, 255, 255);
+      text-transform: uppercase;
+      text-align: left;
+      position: relative;
+      appearance: none;
+
+      &::before {
+        content: " ";
+        border: 1px solid #fff;
+        background-color: rgba(255, 255, 255, 0.2);
+        position: absolute;
+        left: -40px;
+        top: -7px;
+        width: 26px;
+        height: 26px;
+        appearance: none;
+      }
+      &::after {
+        @include addIcon("\f105");
+        left: -29px;
+        top: 0;
+        appearance: none;
+      }
+    }
+
+    .text-info {
+      display: none;
+    }
+    .text-info.expanded {
+      display: block;
+      text-align: left;
+      margin: 0 15px 15px 15px;
+      color: #fff;
+      font-size: 12px;
+    }
+    &:first-child {
+      background-color: rgb(255, 202, 184);
+    }
+    &:last-child {
+      background-color: rgb(255, 166, 135);
+    }
+  }
+}
+
+@media(max-width: 768px){
+  .info-product-container{
+    max-width: 90%;
+  }
+}

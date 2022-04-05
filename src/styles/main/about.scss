@@ -1,0 +1,32 @@
+.about-wrapper {
+  max-width: 970px;
+  margin: 0 auto;
+  padding: 25px 0;
+
+  & p:first-child {
+    margin-bottom: 15px;
+    font-size: 24px;
+    font-family: "Arial";
+    color: rgb(65, 65, 65);
+    line-height: 1.2;
+  }
+
+  & p:last-child {
+    font-size: 14px;
+    font-family: "Arial";
+    color: rgb(153, 153, 153);
+    line-height: 1.2;
+  }
+}
+
+@media (max-width: 1064px) {
+  .about-wrapper {
+    max-width: 730px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-wrapper {
+    display: none;
+  }
+}

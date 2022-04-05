@@ -1,0 +1,97 @@
+@use "../main/mixins.scss" as *;
+
+.icons-section {
+  @include text-content-center();
+  max-width: 970px;
+  margin: 30px auto;
+  height: 90px;
+  border-top: 1px solid #d6d6d6;
+  border-bottom: 1px solid #d6d6d6;
+  .media {
+    width: 20%;
+    @include text-content-center();
+    i {
+      border: 2px solid rgb(184, 169, 164);
+      border-radius: 50%;
+      width: 49px;
+      height: 49px;
+      position: relative;
+      margin-right: 10px;
+      transition: 0.2s;
+      &:before {
+        color: rgb(184, 169, 164);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 21px;
+        transition: 0.2s;
+      }
+    }
+    p {
+      display: inline-block;
+      text-align: left;
+      font-size: 11px;
+      font-family: "Arial";
+      color: rgb(77, 77, 77);
+      text-transform: uppercase;
+      line-height: 1.2;
+      width: 100px;
+    }
+    &:first-child {
+      i {
+        &:hover {
+          border-color: #4064ac;
+          &::before {
+            color: #4064ac;
+          }
+        }
+      }
+    }
+    &:nth-child(2) {
+      i {
+        &:hover {
+          border-color: #b7081b;
+          &::before {
+            color: #b7081b;
+          }
+        }
+      }
+    }
+    &:nth-child(3) {
+      i {
+        &:hover {
+          border-color: #1c96e8;
+          &::before {
+            color: #1c96e8;
+          }
+        }
+      }
+    }
+    &:last-child {
+      i {
+        &:hover {
+          border-color: #000;
+          &::before {
+            color: #000;
+          }
+        }
+      }
+      p {
+        width: 80px;
+      }
+    }
+  }
+}
+
+@media(max-width: 768px){
+  .icons-section{
+    max-width: 90%;
+    margin: 0 auto 15px auto;
+    .media{
+      p{
+        display: none;
+      }
+    }
+  }
+}

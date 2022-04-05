@@ -1,0 +1,75 @@
+@use "./mixins.scss" as *;
+
+.footer-wrapper {
+  background-color: #000;
+  color: #fff;
+  padding: 25px 0;
+
+  & .contain {
+    margin: 0 auto;
+    max-width: 930px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    font-family: "Arial";
+    color: rgb(141, 141, 141);
+
+    & .text-to-click {
+      @include text-content-center();
+
+      & .text {
+        padding: 0 10px;
+        border-right: 1px solid rgb(141, 141, 141);
+        transition: 0.2s;
+        cursor: pointer;
+        color: rgb(141, 141, 141);
+        text-decoration: none;
+
+        &:hover {
+          color: #fff;
+        }
+      }
+
+      & .text:first-child {
+        padding-left: 0;
+      }
+    }
+
+    & .rights {
+      & .text {
+        padding: 2px 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 1064px) {
+  .footer-wrapper {
+    & .contain {
+      max-width: 730px;
+    }
+  }
+}
+@media (max-width: 768px) {
+  .footer-wrapper {
+    padding: 15px 0;
+    & .contain {
+      max-width: 90%;
+      margin: 0 auto;
+      & .text-to-click {
+        & i {
+          font-size: 25px;
+          color: #fff;
+          cursor: pointer;
+        }
+        & .text {
+          display: none;
+        }
+      }
+    }
+
+    & .rights {
+      font-size: 13px;
+    }
+  }
+}

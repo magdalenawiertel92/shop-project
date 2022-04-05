@@ -1,0 +1,232 @@
+@use "./mixins.scss" as *;
+
+@font-face {
+  font-family: "helvetica";
+  src: url("../../fonts/Helvetica.ttf") format("truetype");
+}
+
+$backgroundHoverColor: rgb(68, 68, 68);
+$height: 30px;
+
+.user-bar-wrapper {
+  background-color: #000;
+  color: #fff;
+  font-size: 11px;
+  font-family: "helvetica";
+
+  & .user-bar {
+    max-width: 970px;
+    margin: 0 auto;
+    height: $height;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    & .user-account {
+      display: flex;
+
+      & .custom-select {
+        position: relative;
+
+        & select {
+          font-size: 11px;
+          color: #fff;
+          height: $height;
+          width: 90px;
+          border-top: none;
+          border-bottom: none;
+          border-left: 1px solid $backgroundHoverColor;
+          border-right: 1px solid $backgroundHoverColor;
+          padding: 0 10px;
+          background-color: #000;
+          outline: none;
+          appearance: none;
+          cursor: pointer;
+          transition: 0.2s;
+
+          &:hover {
+            background-color: $backgroundHoverColor;
+          }
+        }
+
+        &:before {
+          @include addIcon("\f0d7");
+          transform: translate(0, 33%);
+          top: 52%;
+          right: 10%;
+          transform: translateY(-50%);
+          pointer-events: none;
+        }
+      }
+
+      .account {
+        & .user-section {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          padding: 0 10px 0 20px;
+          height: $height;
+          border-right: 1px solid $backgroundHoverColor;
+          cursor: pointer;
+          transition: 0.2s;
+
+          &:hover {
+            background-color: $backgroundHoverColor;
+          }
+          & p {
+            color: #fff;
+            margin-left: 10px;
+            position: relative;
+            &:before {
+              @include addIcon("\f007");
+              top: 45%;
+              left: -25%;
+              transform: translateY(-50%);
+            }
+          }
+        }
+      }
+
+      & .search-icon {
+        @include text-content-center();
+        height: $height;
+        width: auto;
+        border-right: 1px solid $backgroundHoverColor;
+        cursor: pointer;
+
+        .search {
+          display: none;
+          background-color: #000;
+          border: none;
+          border-bottom: 1px solid #fff;
+          outline: none;
+          color: #fff;
+          margin: 0 5px 0 10px;
+        }
+
+        button {
+          @include text-content-center();
+          background-color: #000;
+          border: none;
+          width: $height;
+          height: $height;
+          &:hover {
+            background-color: $backgroundHoverColor;
+          }
+          i {
+            font-size: 15px;
+            color: #fff;
+          }
+        }
+      }
+
+      & .active {
+        position: relative;
+        .search {
+          display: block;
+        }
+        .product-info-list {
+          position: absolute;
+          left: 0;
+          z-index: 10;
+          background-color: black;
+          width: 100%;
+          @include text-content-center;
+          justify-content: flex-start;
+          height: $height;
+          border-top: 1px solid #fff;
+          p {
+            font-size: 12px;
+
+            color: #fff;
+          }
+          .name {
+            width: 76%;
+            text-align: left;
+            padding-left: 10px;
+          }
+          .price {
+            width: 20%;
+            text-align: right;
+          }
+          &:hover {
+            background-color: $backgroundHoverColor;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1064px) {
+  .user-bar {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .user-bar-wrapper {
+    & .user-bar {
+      max-width: 100%;
+      flex-direction: column;
+      height: 60px;
+
+      & .custom-care {
+        width: 100%;
+        background-color: #fff;
+        padding: 8px 0;
+        color: $backgroundHoverColor;
+      }
+
+      & .user-account {
+        padding: 0;
+        width: 100%;
+        justify-content: space-between;
+
+        & .custom-select {
+          min-width: 25%;
+
+          & select {
+            width: 100%;
+          }
+        }
+
+        & .account {
+          width: 60%;
+        }
+
+        & .account.small {
+          width: 20%;
+          & .user-section {
+            padding: 0px 10px 0 0px;
+            & p {
+              margin-left: 0;
+            }
+          }
+        }
+
+        & .search-icon {
+          width: 15%;
+          button {
+            &:hover {
+              background-color: #000;
+            }
+          }
+        }
+
+        & .active {
+          width: 60%;
+          .search {
+            display: block;
+          }
+          .product-info-list {
+            &:hover {
+              background-color: #000;
+            }
+          }
+        }
+      }
+    }
+  }
+}

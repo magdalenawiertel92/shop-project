@@ -1,0 +1,172 @@
+.media-wrapper {
+  height: 65px;
+  width: 100%;
+  background-color: #ededed;
+  font-family: Arial, Helvetica, sans-serif;
+
+  & .contain {
+    display: flex;
+    max-width: 970px;
+    margin: 0 auto;
+    justify-content: center;
+    & .email-section,
+    & .icons-section {
+      display: flex;
+      align-items: center;
+      width: 50%;
+      max-height: 65px;
+      margin: 0;
+      border: none;
+
+      & p {
+        font-size: 12px;
+        color: rgb(108, 108, 108);
+        padding-right: 10px;
+      }
+    }
+
+    & .email-section {
+      & .media-email {
+        position: relative;
+        & input {
+          width: 140px;
+          height: 30px;
+          padding: 5px 15px 5px 5px;
+          font-style: italic;
+          color: rgb(159, 159, 159);
+          font-size: 12px;
+          border: none;
+          outline: none;
+        }
+        & p {
+          position: absolute;
+          bottom: -18px;
+          left: 6px;
+          color: red;
+        }
+      }
+
+      & button {
+        width: 30px;
+        height: 30px;
+        border: none;
+        background-color: #fd926d;
+        color: #fff;
+        font-size: 20px;
+        font-weight: bold;
+
+        &:hover {
+          color: #6c6c6c;
+        }
+      }
+    }
+
+    & .icons-section {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      & a {
+        width: 40px;
+        height: 40px;
+        font-family: "Font Awesome 5 Brands";
+        font-style: normal;
+        color: #6b6b6b;
+        position: relative;
+        font-size: 20px;
+        cursor: pointer;
+        margin: 0 5px;
+        & i {
+          &:before {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: 0.2s;
+          }
+
+          &:hover {
+            background-color: rgb(225, 225, 225);
+            font-size: 24px;
+          }
+        }
+        &:nth-child(2) {
+          &:hover {
+            color: #4064ac;
+          }
+        }
+        &:nth-child(3) {
+          &:hover {
+            color: #1c96e8;
+          }
+        }
+
+        &:nth-child(4) {
+          &:hover {
+            color: #b7081b;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1064px) {
+  .media-wrapper {
+    padding: 0 5% 0 5%;
+  }
+}
+
+@media (max-width: 768px) {
+  .media-wrapper {
+    margin-top: 10px;
+    background-color: #fff;
+    padding: 0 2.5% 0 2.5%;
+    & .contain {
+      display: flex;
+      flex-direction: column;
+      & .email-section {
+        width: 100%;
+
+        & p {
+          display: none;
+        }
+
+        & button {
+          width: 15%;
+          height: 40px;
+          font-size: 33px;
+        }
+
+        & .media-email {
+          width: 85%;
+          input {
+            height: 40px;
+            width: 100%;
+            background-color: rgb(225, 225, 225);
+            padding: 5px 5px 5px 15px;
+            font-size: 16px;
+          }
+        }
+      }
+
+      & .icons-section {
+        width: 100%;
+        justify-content: center;
+        margin-top: 10px;
+        height: 38px;
+        & p {
+          font-size: 14px;
+        }
+        & a {
+          height: 100%;
+          background-color: rgb(225, 225, 225);
+          & i {
+            height: 38px;
+            width: 38px;
+            background-color: #ededed;
+          }
+        }
+      }
+    }
+  }
+}

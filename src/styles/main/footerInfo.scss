@@ -1,0 +1,213 @@
+@use "./mixins.scss" as *;
+
+@font-face {
+  font-family: "Impact";
+  src: url("../../fonts/impact.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "HelveticaNeueLTStd";
+  src: url("../../fonts/HelveticaNeueLTStd-ThCn.otf") format("truetype");
+}
+
+.footer-info-wrapper {
+  padding: 25px 0;
+  background-color: rgb(237, 237, 237);
+
+  & .contain {
+    @include text-content-center();
+    max-width: 970px;
+    margin: 0 auto;
+    & .text {
+      @include text-content-center();
+      width: 810px;
+      & .text-only {
+        display: grid;
+        grid-template-areas: "customer information campaigns shops";
+        .name {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: flex-start;
+          margin: 0 25px;
+          height: 140px;
+          & .big-text {
+            font-size: 16px;
+            font-family: "Arial";
+            color: rgb(84, 79, 77);
+            font-weight: bold;
+            padding-bottom: 15px;
+          }
+
+          & .small-text {
+            font-size: 12px;
+            font-family: "Arial";
+            color: rgba(84, 79, 77, 0.702);
+            line-height: 1.5;
+            transition: 0.2s;
+            cursor: pointer;
+            text-decoration: none;
+
+            &:hover {
+              color: rgb(24, 19, 17);
+            }
+          }
+        }
+      }
+      & .name-logos {
+        margin-left: 30px;
+        height: 140px;
+        & .big-text {
+          font-size: 16px;
+          font-family: "Arial";
+          color: rgb(84, 79, 77);
+          font-weight: bold;
+          padding-bottom: 15px;
+          text-align: left;
+        }
+        & .logos {
+          display: grid;
+          grid-template-areas:
+            "twitter pinterest facebook"
+            "googleplus tumblr vimeo";
+          gap: 8px;
+          & .logo {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #818181;
+            @include text-content-center();
+            transition: 0.2s;
+
+            &:hover {
+              background-color: rgb(237, 237, 237);
+            }
+            & a {
+              text-decoration: none;
+              & i {
+                @include text-content-center();
+                color: #fff;
+                font-size: 16px;
+                width: 30px;
+                height: 30px;
+                transition: 0.4s;
+
+                &:hover {
+                  font-size: 24px;
+                }
+              }
+            }
+
+            &:nth-child(3) {
+              & i {
+                &:hover {
+                  color: #4064ac;
+                }
+              }
+            }
+            &:nth-child(1) {
+              & i {
+                &:hover {
+                  color: #1c96e8;
+                }
+              }
+            }
+
+            &:nth-child(2) {
+              & i {
+                &:hover {
+                  color: #b7081b;
+                }
+              }
+            }
+
+            &:nth-child(4) {
+              & i {
+                &:hover {
+                  color: #eb4836;
+                }
+              }
+            }
+
+            &:nth-child(5) {
+              & i {
+                &:hover {
+                  color: #34445a;
+                }
+              }
+            }
+
+            &:nth-child(6) {
+              & i {
+                &:hover {
+                  color: #19b1e3;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    & .sign {
+      width: 160px;
+
+      & .image {
+        position: relative;
+
+        & p {
+          position: absolute;
+          left: 50%;
+          transform: translate(-50%, 0);
+        }
+
+        & p:nth-child(2) {
+          top: 28%;
+          font-size: 28px;
+          font-family: "Impact";
+          color: rgb(165, 157, 154);
+        }
+
+        & p:nth-child(3) {
+          top: 55%;
+          font-size: 13px;
+          font-family: "HelveticaNeueLTStd";
+          color: rgb(165, 157, 154);
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1064px) {
+  .footer-info-wrapper {
+    & .contain {
+      max-width: 730px;
+      & .text {
+        width: auto;
+        & .text-only {
+          grid-template-areas:
+            "customer information"
+            "campaigns stores";
+          gap: 25px;
+          & .name {
+            margin: 0 46px;
+          }
+          & .name:first-child {
+            margin-left: 0;
+          }
+          & .name:nth-child(3) {
+            margin-left: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-info-wrapper {
+    display: none;
+  }
+}

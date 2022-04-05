@@ -1,0 +1,135 @@
+@use "./mixins.scss" as *;
+
+@font-face {
+  font-family: "HelveticaNeueLT";
+  src: url("../../fonts/HelveticaNeueLTStd-Th.otf") format("truetype");
+}
+
+.wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #fd926d;
+  z-index: 10;
+  @include text-content-center(column);
+  .inner {
+    width: 350px;
+    height: 270px;
+    background-color: #ededed;
+    @include text-content-center(column);
+    position: relative;
+    .text {
+      color: #78645d;
+      text-transform: uppercase;
+      font-size: 20px;
+      margin-bottom: 40px;
+      &:nth-child(2) {
+        text-transform: none;
+      }
+    }
+
+    & .back {
+      width: 270px;
+      height: 45px;
+      border: none;
+      background-color: #fd926d;
+      font-size: 23px;
+      font-family: "HelveticaNeueLT";
+      letter-spacing: 1px;
+      position: relative;
+      color: #fff;
+
+      &:hover {
+        &:before {
+          width: 270px;
+          transition: all ease-in-out 0.25s;
+        }
+      }
+      &:before {
+        content: " ";
+        display: block;
+        height: 2px;
+        background-color: #dd6b44;
+        position: absolute;
+        bottom: 0;
+        width: 0%;
+      }
+    }
+
+    .close {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 30px;
+      height: 30px;
+      font-size: 30px;
+      border: none;
+      transition: 0.5s;
+      &:hover {
+        background-color: #fd926d;
+      }
+    }
+  }
+}
+
+@media (max-width: 460px) {
+  .wrapper {
+    .inner {
+      width: 290px;
+      height: 380px;
+      .text {
+        color: #78645d;
+        text-transform: uppercase;
+        font-size: 20px;
+        margin-bottom: 40px;
+        &:nth-child(2) {
+          text-transform: none;
+        }
+      }
+
+      & .back {
+        width: 270px;
+        height: 45px;
+        border: none;
+        background-color: #fd926d;
+        font-size: 23px;
+        font-family: "HelveticaNeueLT";
+        letter-spacing: 1px;
+        position: relative;
+        color: #fff;
+
+        &:hover {
+          &:before {
+            width: 270px;
+            transition: all ease-in-out 0.25s;
+          }
+        }
+        &:before {
+          content: " ";
+          display: block;
+          height: 2px;
+          background-color: #dd6b44;
+          position: absolute;
+          bottom: 0;
+          width: 0%;
+        }
+      }
+
+      .close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 30px;
+        height: 30px;
+        font-size: 30px;
+        border: none;
+        transition: 0.5s;
+        &:hover {
+          background-color: #fd926d;
+        }
+      }
+    }
+  }
+}

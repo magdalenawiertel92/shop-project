@@ -1,0 +1,209 @@
+@use "./mixins.scss" as *;
+
+@font-face {
+  font-family: "LuxuryRoyaleJF";
+  src: url("../../fonts/design.jasonwalcott.Luxury\ Royale\ JF.ttf")
+    format("truetype");
+}
+
+@font-face {
+  font-family: "HelveticaNeueLTStd";
+  src: url("../../fonts/HelveticaNeueLTStd-ThCn.otf") format("truetype");
+}
+
+@font-face {
+  font-family: "HelveticaNeueLT";
+  src: url("../../fonts/HelveticaNeueLTStd-Th.otf") format("truetype");
+}
+
+.swiper {
+  height: 450px;
+  position: relative;
+
+  & .baner-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+
+    & .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgb(246, 243, 236);
+      width: 100%;
+      background-image: url("../../images/baner.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+
+      & .text-wrapper {
+        margin-right: 35%;
+        width: 48%;
+        height: 100%;
+        padding: 40px 0;
+      }
+
+      & .text-wrapper {
+        & .crazy {
+          height: 12.5%;
+          font-family: "LuxuryRoyaleJF";
+          color: rgb(120, 100, 93);
+          font-size: 29px;
+        }
+
+        & .crazy-summer {
+          padding: 10px 0;
+          height: 50%;
+        }
+
+        & .collection,
+        & button {
+          height: 18.75%;
+        }
+
+        & .collection {
+          position: relative;
+          margin: 0 auto;
+          width: 345px;
+          font-family: "HelveticaNeueLTStd";
+          font-size: 36px;
+          color: rgb(120, 100, 93);
+          text-transform: uppercase;
+          border-top: 4px solid rgb(120, 100, 93);
+          padding-top: 5px;
+
+          &:before {
+            content: " ";
+            position: absolute;
+            top: 3px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: rgb(120, 100, 93);
+          }
+        }
+
+        & button {
+          @include buttonWithUnderline(156px, 54px, 20px, 100px);
+          top: 438px;
+        }
+      }
+    }
+  }
+
+  & .back,
+  & .next {
+    position: absolute;
+    top: 30%;
+    width: 2.5%;
+    height: 25%;
+    background-color: #fff;
+    z-index: 1;
+
+    & .swiper-button-prev,
+    & .swiper-button-next {
+      right: auto;
+      left: auto;
+      color: #cacac9;
+      width: 100%;
+      @include text-content-center();
+
+      &:after {
+        font-size: 30px;
+      }
+    }
+  }
+
+  & .back {
+    left: 0;
+  }
+
+  & .next {
+    right: 0;
+  }
+
+  & .swiper-pagination {
+    height: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & .swiper-pagination-bullet {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: #867a76;
+      margin: 0 5px;
+    }
+  }
+}
+
+@media (max-width: 1064px) {
+  .swiper-container {
+    height: 490px;
+    & .baner-wrapper {
+      margin-top: 50px;
+      height: 400px;
+
+      & .header {
+        & .back,
+        & .next {
+          width: 30px;
+          & .swiper-button-prev,
+          & .swiper-button-next {
+            width: 30px;
+          }
+        }
+
+        & .next {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
+
+        & .text-wrapper {
+          padding: 10px 0 40px 0;
+          margin-right: 45%;
+
+          & .crazy-summer {
+            & img {
+              width: 250px;
+              height: 130px;
+            }
+          }
+
+          & .collection {
+            width: 250px;
+            margin: 20px auto 10px auto;
+            font-size: 30px;
+          }
+
+          & button {
+            width: 125px;
+            height: 38px;
+            font-size: 14px;
+
+            &:hover {
+              &:before {
+                width: 125px;
+              }
+            }
+            &:before {
+              bottom: 92px;
+              width: 0%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .swiper {
+    display: none;
+  }
+}
