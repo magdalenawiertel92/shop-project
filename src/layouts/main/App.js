@@ -78,6 +78,7 @@ const App = () => {
       <UserBar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/shop-project" element={<Home />} />
         <Route path="signInForm" element={<SignInForm />} />
         <Route path="logOut" element={<LogOut />} />
         <Route path="signUpForm" element={<SignUpForm />} />
