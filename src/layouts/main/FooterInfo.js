@@ -3,6 +3,11 @@ import "../../styles/main/footerInfo.scss"
 import footer from "../../images/footer-sign.png"
 
 const FooterInfo = () => {
+  const scrollToStart = () => {
+    const userBar = document.querySelector(".user-bar-wrapper")
+    userBar.scrollIntoView({ behavior: "smooth" })
+  }
+
   return (
     <div className="footer-info-wrapper">
       <div className="contain">
@@ -10,79 +15,79 @@ const FooterInfo = () => {
           <div className="text-only">
             <div className="name">
               <p className="big-text">Customer Service</p>
-              <a href="/" className="small-text">
+              <p className="small-text" onClick={scrollToStart}>
                 Contact
-              </a>
+              </p>
 
-              <a href="/" className="small-text">
+              <p className="small-text" onClick={scrollToStart}>
                 FAQ
-              </a>
-              <a href="/" className="small-text">
+              </p>
+              <p className="small-text" onClick={scrollToStart}>
                 Terms of payment
-              </a>
-              <a href="/" className="small-text">
+              </p>
+              <p className="small-text" onClick={scrollToStart}>
                 Terms of sale
-              </a>
-              <a href="/" className="small-text">
+              </p>
+              <p className="small-text" onClick={scrollToStart}>
                 Delivery terms and conditions
-              </a>
-              <a href="/" className="small-text">
-                Returns and Refunds{" "}
-              </a>
+              </p>
+              <p className="small-text" onClick={scrollToStart}>
+                Returns and Refunds
+              </p>
             </div>
             <div className="name">
               <p className="big-text">Information</p>
-              <a href="/" className="small-text">
+              <p className="small-text" onClick={scrollToStart}>
                 Affiliate
-              </a>
-              <a href="/" className="small-text">
+              </p>
+              <p className="small-text" onClick={scrollToStart}>
                 Cookies
-              </a>
-              <a href="/" className="small-text">
+              </p>
+              <p className="small-text" onClick={scrollToStart}>
                 How to Shop
-              </a>
-              <a href="/" className="small-text">
+              </p>
+              <p className="small-text" onClick={scrollToStart}>
                 About Nelly
-              </a>
-              <a href="/" className="small-text">
+              </p>
+              <p className="small-text" onClick={scrollToStart}>
                 Investor relations
-              </a>
+              </p>
             </div>
             <div className="name">
               <p className="big-text">Campaigns</p>
-              <a href="/" className="small-text">
+              <p className="small-text" onClick={scrollToStart}>
                 Evening dresses
-              </a>
-              <a href="/" className="small-text">
+              </p>
+              <p className="small-text" onClick={scrollToStart}>
                 Makeup
-              </a>
-              <a href="/" className="small-text">
+              </p>
+              <p className="small-text" onClick={scrollToStart}>
                 Fashion forward
-              </a>
-              <a href="/" className="small-text">
+              </p>
+              <p className="small-text" onClick={scrollToStart}>
                 Training clothes
-              </a>
-              <a href="/" className="small-text">
+              </p>
+              <p className="small-text" onClick={scrollToStart}>
                 Special Occasion Dresses
-              </a>
+              </p>
             </div>
             <div className="name">
               <p className="big-text">Stores</p>
-              <a href="/" className="small-text">
+              <p className="small-text" onClick={scrollToStart}>
                 Paris
-              </a>
-              <a href="/" className="small-text">
+              </p>
+              <p className="small-text" onClick={scrollToStart}>
                 New York
-              </a>
-              <a href="/" className="small-text">
+              </p>
+              <p className="small-text" onClick={scrollToStart}>
                 London
-              </a>
-              <a href="/" className="small-text">
+              </p>
+              <p className="small-text" onClick={scrollToStart}>
                 Madrid
-              </a>
-              <a href="/" className="small-text">
+              </p>
+              <p className="small-text" onClick={scrollToStart}>
                 Tokio
-              </a>
+              </p>
             </div>
           </div>
           <div className="name-logos">

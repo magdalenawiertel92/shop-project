@@ -3,29 +3,31 @@ import "../../styles/main/footer.scss"
 
 const Footer = () => {
   const width = window.innerWidth
+
+  const scrollToStart = () => {
+    const userBar = document.querySelector(".user-bar-wrapper")
+    userBar.scrollIntoView({ behavior: "smooth" })
+  }
   return (
     <div className="footer-wrapper">
       <div className="contain">
         <div className="text-to-click">
           {width < 640 ? <i className="fas fa-bars"></i> : null}
-          <a
-            href="https://magdalenawiertel92.github.io/shop-project/"
-            className="text"
-          >
+          <p className="text" onClick={scrollToStart}>
             Privacy & Cookies
-          </a>
-          <a href="/" className="text">
+          </p>
+          <p className="text" onClick={scrollToStart}>
             Terms & Conditions
-          </a>
-          <a href="/" className="text">
+          </p>
+          <p className="text" onClick={scrollToStart}>
             Accessibility
-          </a>
-          <a href="/" className="text">
+          </p>
+          <p className="text" onClick={scrollToStart}>
             Store Directory
-          </a>
-          <a href="/" className="text">
+          </p>
+          <p className="text" onClick={scrollToStart}>
             About Us
-          </a>
+          </p>
         </div>
         <div className="rights">
           <p className="text">© LookShop.com</p>
