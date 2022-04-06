@@ -76,7 +76,6 @@ const App = () => {
   return (
     <Router>
       <UserBar />
-      <Home />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="signInForm" element={<SignInForm />} />
