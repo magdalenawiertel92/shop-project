@@ -8,19 +8,19 @@ const Footer = () => {
       <div className="contain">
         <div className="text-to-click">
           {width < 640 ? <i className="fas fa-bars"></i> : null}
-          <a href="/#" className="text">
+          <a href="/" className="text">
             Privacy & Cookies
           </a>
-          <a href="/#" className="text">
+          <a href="/" className="text">
             Terms & Conditions
           </a>
-          <a href="/#" className="text">
+          <a href="/" className="text">
             Accessibility
           </a>
-          <a href="/#" className="text">
+          <a href="/" className="text">
             Store Directory
           </a>
-          <a href="/#" className="text">
+          <a href="/" className="text">
             About Us
           </a>
         </div>
