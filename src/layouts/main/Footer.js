@@ -8,7 +8,10 @@ const Footer = () => {
       <div className="contain">
         <div className="text-to-click">
           {width < 640 ? <i className="fas fa-bars"></i> : null}
-          <a href="/" className="text">
+          <a
+            href="https://magdalenawiertel92.github.io/shop-project/"
+            className="text"
+          >
             Privacy & Cookies
           </a>
           <a href="/" className="text">
