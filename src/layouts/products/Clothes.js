@@ -21,7 +21,7 @@ const Clothes = () => {
   const handleAddToCart = (name, photo, price, basePrice, path) => {
     const cart = document.querySelector(".cart")
     cart.scrollIntoView({ behavior: "smooth" })
-    add_to_cart(name, products.currencySign, photo, price, basePrice, 1, path)
+    add_to_cart(name, products.currencySign, photo, price, basePrice, path)
   }
 
   const handleSort = e => {
