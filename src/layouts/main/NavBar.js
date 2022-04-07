@@ -52,45 +52,47 @@ const NavBar = () => {
   }
 
   const itemsInCart = cart.products.map((item, index) => (
-    <NavLink to={cart.paths[index]} key={index}>
-      <li
-        id={index}
-        className="product-in-cart"
-        style={
-          index === 0
-            ? { bottom: ` -${(index + 1) * 105}px` }
-            : { bottom: ` -${(index + 1) * 70 + 35}px` }
-        }
-        onClick={() => {
-          handleSetProductInfo(
-            item,
-            cart.calculatedPrice[index],
+    <li
+      key={index}
+      id={index}
+      className="product-in-cart"
+      style={
+        index === 0
+          ? { bottom: ` -${(index + 1) * 105}px` }
+          : { bottom: ` -${(index + 1) * 70 + 35}px` }
+      }
+      onClick={() => {
+        handleSetProductInfo(
+          item,
+          cart.calculatedPrice[index],
+          cart.photos[index],
+          cart.paths[index]
+        )
+      }}
+    >
+      <NavLink to={cart.paths[index]}>
+        <img src={cart.photos[index]} alt="mini-product" />
+      </NavLink>
+
+      <p className="productInCart">{item}</p>
+      <p>
+        {products.currencySign}
+        {cart.calculatedPrice[index]}
+      </p>
+      <button
+        onClick={e => {
+          e.stopPropagation()
+          handleRemoveFromCart(
+            index,
+            cart.products[index],
             cart.photos[index],
-            cart.paths[index]
+            cart.calculatedPrice[index]
           )
         }}
       >
-        <img src={cart.photos[index]} alt="mini-product" />
-        <p className="productInCart">{item}</p>
-        <p>
-          {products.currencySign}
-          {cart.calculatedPrice[index]}
-        </p>
-        <button
-          onClick={e => {
-            e.stopPropagation()
-            handleRemoveFromCart(
-              index,
-              cart.products[index],
-              cart.photos[index],
-              cart.calculatedPrice[index]
-            )
-          }}
-        >
-          X
-        </button>
-      </li>
-    </NavLink>
+        X
+      </button>
+    </li>
   ))
 
   const innerNav = innerNavItems.map((item, index) => (

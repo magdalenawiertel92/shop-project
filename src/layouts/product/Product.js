@@ -15,8 +15,8 @@ const Product = () => {
 
   const { add_to_cart } = bindActionCreators(actionCreators, dispatch)
 
-  const handleAddToCart = (name, photo, price, basePrice) => {
-    add_to_cart(name, products.currencySign, photo, price, basePrice)
+  const handleAddToCart = (name, photo, price, basePrice, path) => {
+    add_to_cart(name, products.currencySign, photo, price, basePrice, path)
   }
   return (
     <div className="product-container">
@@ -71,7 +71,8 @@ const Product = () => {
                   productInfo.name,
                   productInfo.image,
                   productInfo.price,
-                  (productInfo.price * products.ratio).toFixed(2)
+                  (productInfo.price * products.ratio).toFixed(2),
+                  productInfo.path
                 )
               }}
             >
