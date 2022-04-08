@@ -76,7 +76,10 @@ const NavBar = () => {
         <img src={cart.photos[index]} alt="mini-product" />
       </NavLink>
 
-      <NavLink to={cart.paths[index]}>
+      <NavLink
+        to={cart.paths[index]}
+        style={{ textDecoration: "none", color: "rgb(148, 147, 147)" }}
+      >
         <p className="productInCart">{item}</p>
       </NavLink>
       <p>
