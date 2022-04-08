@@ -91,6 +91,10 @@ const INITIAL_STATE = {
 }
 
 const productsReducer = (state = INITIAL_STATE, action) => {
+  const price = state.productsPrices.length
+    ? state.productsPrices
+    : state.baseProductsPrices
+
   switch (action.type) {
     case "CALCULATE_VALUE":
       return {
@@ -121,14 +125,14 @@ const productsReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         productsList: state.productsList.sort(
-          (a, b) => state.productsPrices[a.id] - state.productsPrices[b.id]
+          (a, b) => price[a.id] - price[b.id]
         ),
       }
     case "SORT_PRODUCTS_BY_HIGHEST_PRICE":
       return {
         ...state,
         productsList: state.productsList.sort(
-          (a, b) => state.productsPrices[b.id] - state.productsPrices[a.id]
+          (a, b) => price[b.id] - price[a.id]
         ),
       }
     default:

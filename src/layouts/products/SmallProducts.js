@@ -118,7 +118,11 @@ const SmallProducts = () => {
     setSecondPrice(e.target.value)
   }
 
-  let filteredPricesIndexes = products.productsPrices.map((price, index) =>
+  const prices = products.productsPrices.length
+    ? products.productsPrices
+    : products.baseProductsPrices
+
+  let filteredPricesIndexes = prices.map((price, index) =>
     price >= firstPrice && price <= secondPrice ? index : undefined
   )
 

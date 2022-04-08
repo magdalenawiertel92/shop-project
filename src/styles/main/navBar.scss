@@ -15,6 +15,12 @@
   margin: 0 auto;
   font-family: "helvetica";
 
+  & logo {
+    img {
+      cursor: pointer;
+    }
+  }
+
   & nav {
     width: 80%;
     padding: 10px 4px;
@@ -28,6 +34,7 @@
         position: relative;
         min-width: 20%;
         text-transform: uppercase;
+        cursor: pointer;
         p {
           padding: 5px 0;
           color: #000;
@@ -75,6 +82,11 @@
 
   & .cart {
     min-width: 220px;
+    & .items-in-cart-empty {
+      &:before {
+        content: "";
+      }
+    }
     & .items-in-cart {
       display: flex;
       justify-content: flex-start;
@@ -139,6 +151,27 @@
       }
       & .active {
         display: flex;
+      }
+    }
+
+    & .items-in-cart-empty {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      position: relative;
+      height: 35px;
+      border: 1px solid rgb(214, 214, 214);
+      border-bottom: none;
+      cursor: pointer;
+      appearance: none;
+      list-style: none;
+      font-size: 12px;
+      color: rgb(148, 147, 147);
+      cursor: pointer;
+      padding-left: 10px;
+      z-index: 10;
+      &:before {
+        content: "";
       }
     }
 

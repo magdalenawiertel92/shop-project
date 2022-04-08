@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { NavLink } from "react-router-dom"
+import { NavLink, useNavigate } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
 import navItems from "../../static/navItems"
 import "../../styles/main/navBar.scss"
@@ -13,6 +13,8 @@ const NavBar = () => {
   const [active, setActive] = useState(navItems)
 
   const dispatch = useDispatch()
+
+  const navigate = useNavigate()
 
   const { remove_from_cart, get_product_info } = bindActionCreators(
     actionCreators,
@@ -74,7 +76,9 @@ const NavBar = () => {
         <img src={cart.photos[index]} alt="mini-product" />
       </NavLink>
 
-      <p className="productInCart">{item}</p>
+      <NavLink to={cart.paths[index]}>
+        <p className="productInCart">{item}</p>
+      </NavLink>
       <p>
         {products.currencySign}
         {cart.calculatedPrice[index]}
@@ -123,7 +127,13 @@ const NavBar = () => {
       {width > 1064 ? (
         <div className="nav-wrapper">
           <div className="logo">
-            <img src={logo} alt="logo" />
+            <img
+              src={logo}
+              alt="logo"
+              onClick={() => {
+                navigate("/")
+              }}
+            />
           </div>
           <nav>
             <div className="hamburger">
@@ -138,10 +148,14 @@ const NavBar = () => {
             <ul className="mainNav">{menu}</ul>
           </nav>
           <div className="cart">
-            <ul className="items-in-cart" onClick={handleShowProductsInCart}>
-              Your cart
-              {itemsInCart}
-            </ul>
+            {cart.products.length ? (
+              <ul className="items-in-cart" onClick={handleShowProductsInCart}>
+                Your cart
+                {itemsInCart}
+              </ul>
+            ) : (
+              <div className="items-in-cart-empty">Your cart is empty</div>
+            )}
             <div className="calculate">
               <p>{cart.numberOfItems} ITEMS</p>
               <p>
