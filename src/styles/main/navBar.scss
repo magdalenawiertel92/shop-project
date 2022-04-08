@@ -193,12 +193,19 @@
 
       & p {
         font-size: 11px;
-        color: rgb(148, 147, 147);
+        color: rgb(170, 170, 170);
         padding: 0 7px;
 
         &:nth-child(1) {
           border-right: 1px solid rgb(148, 147, 147);
         }
+      }
+    }
+
+    & .added {
+      & p {
+        color: #000;
+        font-weight: bold;
       }
     }
   }

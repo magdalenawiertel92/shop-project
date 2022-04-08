@@ -1,0 +1,18 @@
+.cart-wrapper {
+  display: none;
+  position: sticky;
+  top: 0;
+  width: 100vw;
+  background-color: #ffa687;
+  z-index: 20;
+  color: #000;
+  &.added {
+    display: block;
+  }
+  .text {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

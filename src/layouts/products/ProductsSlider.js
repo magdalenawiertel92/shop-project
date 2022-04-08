@@ -17,6 +17,11 @@ const Baner = ({ activeSlide }) => {
   const { add_to_cart } = bindActionCreators(actionCreators, dispatch)
 
   const handleAddToCart = (name, photo, price, basePrice, path) => {
+    const cart = document.querySelector(".cart-wrapper")
+    cart.classList.add("added")
+    setTimeout(() => {
+      cart.classList.remove("added")
+    }, 1000)
     add_to_cart(name, products.currencySign, photo, price, basePrice, path)
   }
   const price = products.bestsellersPrices[

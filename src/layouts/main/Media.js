@@ -10,11 +10,7 @@ const schema = yup.object().shape({
 })
 
 const Media = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
+  const { register, handleSubmit } = useForm({
     resolver: yupResolver(schema),
   })
 
@@ -36,7 +32,6 @@ const Media = () => {
               name="email"
               {...register("email")}
             />
-            <p>{errors["email"]?.message}</p>
           </label>
 
           <button onClick={handleSubmit(handleonSubmit)}>+</button>

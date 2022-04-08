@@ -159,7 +159,9 @@ const NavBar = () => {
             ) : (
               <div className="items-in-cart-empty">Your cart is empty</div>
             )}
-            <div className="calculate">
+            <div
+              className={cart.numberOfItems ? "calculate added" : "calculate"}
+            >
               <p>{cart.numberOfItems} ITEMS</p>
               <p>
                 {products.currencySign}

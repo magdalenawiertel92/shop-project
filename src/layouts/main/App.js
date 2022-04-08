@@ -19,6 +19,7 @@ import Cards from "../main/Cards"
 import FooterInfo from "../main/FooterInfo"
 import Footer from "../main/Footer"
 import UserBar from "../main/UserBar"
+import CartAdded from "../../components/CartAdded"
 
 const App = () => {
   const { products } = useSelector(state => state)
@@ -75,6 +76,7 @@ const App = () => {
   ))
   return (
     <Router>
+      <CartAdded />
       <UserBar />
       <Routes>
         <Route path="/" element={<Home />} />
