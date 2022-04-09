@@ -24,7 +24,7 @@
       & p {
         display: none;
       }
-      & li {
+      & .name {
         width: 25%;
         @include text-content-center();
         font-size: 15px;
@@ -43,6 +43,11 @@
 
         &:hover {
           color: #fff;
+          background-color: #fd926d;
+          border-top-left-radius: 10px;
+          border-top-right-radius: 10px;
+        }
+        &.choosen {
           background-color: #fd926d;
           border-top-left-radius: 10px;
           border-top-right-radius: 10px;
@@ -70,8 +75,6 @@
             transition: 0.2s;
             background-color: #fd926d;
             border-radius: 0%;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
             top: 0;
             height: 45px;
             width: 45px;
@@ -357,12 +360,16 @@
             display: none;
             height: 40px;
             width: 100%;
+            &.choosen {
+              background-color: #f4845d;
+            }
           }
           & .active {
             display: flex;
             justify-content: flex-start;
             align-items: center;
           }
+
           li {
             &:hover {
               background-color: #f4845d;

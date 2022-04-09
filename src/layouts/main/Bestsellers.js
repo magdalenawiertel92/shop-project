@@ -120,24 +120,7 @@ const Bestsellers = () => {
 
   const [name, setName] = useState(`what's hot?`)
 
-  const [isOpen, setIsOpen] = useState(false)
-
-  const handleShowInRandomOrder = name => {
-    setBestsellersRandomList([
-      ...bestesellersRandomList.sort(() => Math.random() - 0.5),
-    ])
-    setName(name)
-    if (!isOpen) {
-      setIsOpen(prevValue => !prevValue)
-    } else {
-      setIsOpen(prevValue => !prevValue)
-    }
-    const list = document.querySelectorAll(".name")
-
-    list.forEach(item => {
-      item.classList.add("active")
-    })
-  }
+  const [isOpen, setIsOpen] = useState(true)
 
   const [productsToShow, setProductToShow] = useState(6)
 
@@ -154,24 +137,43 @@ const Bestsellers = () => {
   }
 
   const handleOnClick = () => {
-    if (!isOpen) {
-      setIsOpen(prevValue => !prevValue)
-    } else {
-      setIsOpen(prevValue => !prevValue)
-    }
     const list = document.querySelectorAll(".name")
-
     list.forEach(item => {
       item.classList.add("active")
     })
+    if (!isOpen) {
+      setIsOpen(prevValue => !prevValue)
+      list.forEach(item => {
+        item.classList.remove("active")
+      })
+    } else {
+      setIsOpen(prevValue => !prevValue)
+    }
+  }
+
+  const handleShowInRandomOrder = (e, name) => {
+    setBestsellersRandomList([
+      ...bestesellersRandomList.sort(() => Math.random() - 0.5),
+    ])
+    setName(name)
+    const list = [...document.querySelectorAll(".name")]
+    list.forEach(item => {
+      item.classList.remove("active")
+      item.classList.remove("choosen")
+    })
+
+    const listItem = e.target
+    listItem.classList.add("choosen")
+
+    console.log(listItem)
   }
 
   const innerNav = bestsellersMenu.map((item, index) => (
     <li
-      className={isOpen ? "name active" : "name"}
+      className="name"
       key={index}
-      onClick={() => {
-        handleShowInRandomOrder(item.name.toUpperCase())
+      onClick={e => {
+        handleShowInRandomOrder(e, item.name.toUpperCase())
       }}
     >
       {item.name}
@@ -180,12 +182,12 @@ const Bestsellers = () => {
 
   return (
     <div className="products-wrapper">
-      <nav className="products-menu">
+      <nav className="products-menu" onClick={handleOnClick}>
         <ul className="bestellers-menu">
-          {isOpen ? null : <p>{name.toUpperCase()}</p>}
+          <p>{name.toUpperCase()}</p>
           {innerNav}
         </ul>
-        <div className="dropdown-menu" onClick={handleOnClick}>
+        <div className="dropdown-menu">
           <i className="fa-solid fa-angle-down"></i>
         </div>
       </nav>
