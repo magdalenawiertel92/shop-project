@@ -26,6 +26,8 @@ const SmallProducts = () => {
 
   const handleSetProductInfo = (name, price, image) => {
     get_product_info(name, price, image)
+    const userBar = document.querySelector(".user-bar-wrapper")
+    userBar.scrollIntoView()
   }
 
   const innerNav = innerNavItems.map((item, index) => (

@@ -33,6 +33,8 @@ const Bestsellers = () => {
 
   const handleSetProductInfo = (name, price, image, path) => {
     get_product_info(name, price, image, path)
+    const userBar = document.querySelector(".user-bar-wrapper")
+    userBar.scrollIntoView()
   }
 
   const [productStatus, setProductStatus] = useState(bestsellersProductList)

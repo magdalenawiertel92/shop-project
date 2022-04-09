@@ -27,13 +27,12 @@
       & li {
         width: 25%;
         @include text-content-center();
-        margin: 0 10px;
-        padding: 0 11px;
         font-size: 15px;
         font-family: "Arial";
         color: rgb(65, 65, 65);
         text-transform: uppercase;
         transition: 0.2s;
+
         cursor: pointer;
         &:nth-child(1) {
           margin-left: 0;
@@ -45,7 +44,8 @@
         &:hover {
           color: #fff;
           background-color: #fd926d;
-          border-bottom: 1px solid #fff;
+          border-top-left-radius: 10px;
+          border-top-right-radius: 10px;
         }
       }
     }
@@ -69,11 +69,12 @@
             cursor: pointer;
             transition: 0.2s;
             background-color: #fd926d;
-            border: 1px solid #fff;
+            border-radius: 0%;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
             top: 0;
             height: 45px;
             width: 45px;
-            border-radius: 0%;
             box-shadow: none;
             color: #fff;
             font-size: 20px;
@@ -91,6 +92,7 @@
 
           & .rec-slider-container {
             margin-top: 18px;
+            height: 100%;
             & .product {
               @include productStyle();
             }

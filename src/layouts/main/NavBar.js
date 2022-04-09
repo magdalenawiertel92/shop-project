@@ -53,6 +53,11 @@ const NavBar = () => {
     get_product_info(name, price, image, path)
   }
 
+  const handleScrollToTop = () => {
+    const userBar = document.querySelector(".user-bar-wrapper")
+    userBar.scrollIntoView()
+  }
+
   const itemsInCart = cart.products.map((item, index) => (
     <li
       key={index}
@@ -103,7 +108,7 @@ const NavBar = () => {
   ))
 
   const innerNav = innerNavItems.map((item, index) => (
-    <p className="category-name" key={index}>
+    <p className="category-name" key={index} onClick={handleScrollToTop}>
       <NavLink to={item.path}>{item.name}</NavLink>
     </p>
   ))
